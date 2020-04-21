@@ -7,7 +7,7 @@ using System.Data;
 
 namespace capadato
 {
-    class accesodatosrecursos
+    public  class accesodatosrecursos
     {
         SqlConnection cnx;
         recursos rec = new recursos();

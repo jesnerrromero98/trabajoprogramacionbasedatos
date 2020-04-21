@@ -7,7 +7,7 @@ using System.Data;
 
 namespace capadato
 {
-    class accesodatosolicitud
+    public class accesodatosolicitud
     {
         SqlConnection cnx;
         solicitud sol = new solicitud();
