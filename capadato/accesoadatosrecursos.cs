@@ -22,12 +22,12 @@ namespace capadato
             {
                 SqlConnection cnx = cn.conectar();
 
-                cm = new SqlCommand("cuentas", cnx);
+                cm = new SqlCommand("recurso", cnx);
                 cm.Parameters.AddWithValue("@b", 1);
                 cm.Parameters.AddWithValue("@idrecursos", "");
-                cm.Parameters.AddWithValue("@nombres", rec.nombres);
-                cm.Parameters.AddWithValue("@clave", rec.codigo);
-                cm.Parameters.AddWithValue("@rol", rec.descripcion);
+                cm.Parameters.AddWithValue("@nombre", rec.nombres);
+                cm.Parameters.AddWithValue("@codigo", rec.codigo);
+                cm.Parameters.AddWithValue("@descripcion", rec.descripcion);
                 
 
                 cm.CommandType = CommandType.StoredProcedure;
@@ -51,9 +51,9 @@ namespace capadato
         {
             try
             {
-                cm = new SqlCommand("cuentas", cnx);
+                cm = new SqlCommand("recurso", cnx);
                 cm.Parameters.AddWithValue("@b", 1);
-                cm.Parameters.AddWithValue("idrecursos", "");
+                cm.Parameters.AddWithValue("@idrecursos", "");
                 cm.Parameters.AddWithValue("@nombre", "");
                 cm.Parameters.AddWithValue("@codigo", "");
                 cm.Parameters.AddWithValue("@descripcion", "");
@@ -68,10 +68,10 @@ namespace capadato
                 while (dr.Read())
                 {
                     recursos rec = new recursos();
-                    rec.idrecursos = Convert.ToInt32(dr["idcuenta"].ToString());
-                    rec.nombres = dr["nombre"].ToString();
-                    rec.codigo = dr["clave"].ToString();
-                    rec.descripcion = dr["rol"].ToString();
+                    rec.idrecursos = Convert.ToInt32(dr["idrecurso"].ToString());
+                    rec.nombres = dr["nombres"].ToString();
+                    rec.codigo = dr["codigo"].ToString();
+                    rec.descripcion = dr["descripcion"].ToString();
                     
 
 
@@ -129,7 +129,7 @@ namespace capadato
 
                 cm = new SqlCommand("comentar", cnx);
                 cm.Parameters.AddWithValue("@b", 4);
-                cm.Parameters.AddWithValue("idrecursos", rec.idrecursos);
+                cm.Parameters.AddWithValue("@idrecursos", rec.idrecursos);
                 cm.Parameters.AddWithValue("@nombres", rec.nombres);
                 cm.Parameters.AddWithValue("@codigo", rec.codigo);
                 cm.Parameters.AddWithValue("@descripcion", rec.descripcion);
@@ -160,7 +160,7 @@ namespace capadato
 
                 cm = new SqlCommand("comentar", cnx);
                 cm.Parameters.AddWithValue("@b", 5);
-                cm.Parameters.AddWithValue("idccuenta", "");
+                cm.Parameters.AddWithValue("@idrecursos", "");
                 cm.Parameters.AddWithValue("@nombre", dato);
                 cm.Parameters.AddWithValue("@codigo", dato);
                 cm.Parameters.AddWithValue("@descripcion", "");
